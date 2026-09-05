@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashwik Bire — Microsoft Certifications</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B1220;
+    --surface:#111A2C;
+    --line:#243252;
+    --line-soft:#1B2740;
+    --text:#E9EDF6;
+    --muted:#8A96B4;
+    --gold:#E7A33E;
+    --gold-dim:#9C7638;
+    --blue:#5B8DEF;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:72px 24px 96px;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    margin-bottom:56px;
+    animation:rise .7s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes rise{
+    from{opacity:0; transform:translateY(10px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  .eyebrow-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:22px;
+  }
+  .ms-mark{
+    width:18px; height:18px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:1fr 1fr;
+    gap:2px;
+    flex:none;
+  }
+  .ms-mark span{display:block;}
+  .ms-mark span:nth-child(1){background:#F35325;}
+  .ms-mark span:nth-child(2){background:#81BC06;}
+  .ms-mark span:nth-child(3){background:#05A6F0;}
+  .ms-mark span:nth-child(4){background:#FFBA08;}
+  .eyebrow-row span.label{
+    font-size:13px;
+    color:var(--muted);
+    letter-spacing:.02em;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(32px,5vw,44px);
+    line-height:1.12;
+    margin:0 0 14px;
+    letter-spacing:-.01em;
+  }
+  header p.role{
+    margin:0 0 20px;
+    color:var(--muted);
+    font-size:16px;
+    max-width:52ch;
+  }
+  .stat-line{
+    display:flex;
+    flex-wrap:wrap;
+    gap:28px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+  }
+  .stat{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+  .stat b{
+    font-family:'Fraunces', serif;
+    font-size:26px;
+    font-weight:500;
+    color:var(--gold);
+  }
+  .stat span{
+    font-size:12.5px;
+    color:var(--muted);
+  }
+
+  /* ---------- Transcript list ---------- */
+  .transcript-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    border-bottom:1px solid var(--line);
+    padding-bottom:12px;
+    margin-bottom:4px;
+    color:var(--muted);
+    font-size:13px;
+  }
+  .entry{
+    display:grid;
+    grid-template-columns:56px 1fr auto;
+    gap:20px;
+    align-items:start;
+    padding:26px 0;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .entry:first-of-type{padding-top:30px;}
+
+  .badge{
+    width:44px;
+    height:52px;
+    flex:none;
+    margin-top:2px;
+  }
+
+  .entry-main h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:19px;
+    margin:0 0 6px;
+    line-height:1.3;
+  }
+  .entry-main .code{
+    color:var(--gold);
+    font-weight:600;
+    font-size:14px;
+  }
+  .entry-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 16px;
+    margin-top:10px;
+    font-size:13px;
+    color:var(--muted);
+  }
+  .entry-meta .id-val{
+    color:#B7C0DA;
+  }
+
+  .entry-side{
+    text-align:right;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:10px;
+    padding-top:2px;
+  }
+  .tier-tag{
+    font-size:11.5px;
+    color:var(--muted);
+    border:1px solid var(--line);
+    padding:3px 9px;
+    border-radius:100px;
+    white-space:nowrap;
+  }
+  .verify-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    text-decoration:none;
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--blue);
+    border-bottom:1px solid transparent;
+    transition:border-color .15s ease, color .15s ease;
+    white-space:nowrap;
+  }
+  .verify-link:hover, .verify-link:focus-visible{
+    color:#89ACF6;
+    border-color:#89ACF6;
+  }
+  .verify-link:focus-visible{
+    outline:2px solid var(--blue);
+    outline-offset:4px;
+    border-radius:2px;
+  }
+  .verify-link svg{width:12px; height:12px;}
+
+  @media (max-width:560px){
+    .entry{
+      grid-template-columns:40px 1fr;
+    }
+    .entry-side{
+      grid-column:2 / 3;
+      flex-direction:row;
+      align-items:center;
+      justify-content:space-between;
+      margin-top:14px;
+      width:100%;
+    }
+    .badge{width:38px; height:46px;}
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    margin-top:64px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+    color:var(--muted);
+    font-size:13px;
+  }
+  footer a{
+    color:var(--blue);
+    text-decoration:none;
+    font-weight:600;
+  }
+  footer a:hover{text-decoration:underline;}
+
+  @media (prefers-reduced-motion: reduce){
+    header{animation:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow-row">
+      <span class="ms-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+      <span class="label">Microsoft Certification Transcript</span>
+    </div>
+    <h1>Ashwik Bire</h1>
+    <p class="role">Data Analyst &amp; BI Developer — Power BI, Microsoft Fabric and Azure, verified through six Microsoft credentials earned between 2022 and 2026.</p>
+
+    <div class="stat-line">
+      <div class="stat"><b>6</b><span>Credentials</span></div>
+      <div class="stat"><b>4</b><span>Associate level</span></div>
+      <div class="stat"><b>2026</b><span>Most recent</span></div>
+    </div>
+  </header>
+
+  <div class="transcript-heading">
+    <span>Credential</span>
+    <span>Verify</span>
+  </div>
+
+  <!-- 1: AZ-900 -->
+  <div class="entry">
+    <svg class="badge" viewBox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M22 1 L42 8 V24 C42 37 34 46 22 51 C10 46 2 37 2 24 V8 Z" fill="#16233F" stroke="#3A4E7A" stroke-width="1.5"/>
+      <path d="M22 15 L27.5 25.5 H16.5 Z" fill="#5B8DEF"/>
+    </svg>
+    <div class="entry-main">
+      <h2>Microsoft Certified: Azure Fundamentals <span class="code">AZ-900</span></h2>
+      <div class="entry-meta">
+        <span>Earned Oct 20, 2022</span>
+        <span>Credential ID <span class="id-val">7DE31893D146BF69</span></span>
+      </div>
+    </div>
+    <div class="entry-side">
+      <span class="tier-tag">Fundamentals</span>
+      <a class="verify-link" href="https://learn.microsoft.com/en-us/users/ashwikbire-7557/credentials/7de31893d146bf69?ref=https%3A%2F%2Fwww.linkedin.com%2F" target="_blank" rel="noopener">
+        View credential
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 2: PL-300 -->
+  <div class="entry">
+    <svg class="badge" viewBox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M22 1 L42 8 V24 C42 37 34 46 22 51 C10 46 2 37 2 24 V8 Z" fill="#1E1408" stroke="#7A5A26" stroke-width="1.5"/>
+      <path d="M22 13 L26 21 H18 Z" fill="#E7A33E"/>
+      <path d="M15 26 L19 34 H11 Z" fill="#E7A33E"/>
+      <path d="M29 26 L33 34 H25 Z" fill="#E7A33E"/>
+    </svg>
+    <div class="entry-main">
+      <h2>Microsoft Certified: Power BI Data Analyst Associate <span class="code">PL-300</span></h2>
+      <div class="entry-meta">
+        <span>Earned Feb 23, 2024</span>
+        <span>Credential ID <span class="id-val">B4324BFF2A4C2081</span></span>
+      </div>
+    </div>
+    <div class="entry-side">
+      <span class="tier-tag">Associate</span>
+      <a class="verify-link" href="https://learn.microsoft.com/api/credentials/share/en-us/AshwikBire-7557/B4324BFF2A4C2081?sharingId=76BD5BF23210903E" target="_blank" rel="noopener">
+        View credential
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 3: Applied Skills -->
+  <div class="entry">
+    <svg class="badge" viewBox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="22" cy="22" r="19" fill="#1E1408" stroke="#7A5A26" stroke-width="1.5"/>
+      <path d="M22 12 L25.4 18.8 L33 20 L27.5 25.3 L28.8 32.8 L22 29.2 L15.2 32.8 L16.5 25.3 L11 20 L18.6 18.8 Z" fill="#E7A33E"/>
+      <path d="M14 40 L22 45 L30 40 L28 33 L16 33 Z" fill="#16233F" stroke="#3A4E7A" stroke-width="1"/>
+    </svg>
+    <div class="entry-main">
+      <h2>Microsoft Applied Skills: Streamline Business Workflows with AI Chat</h2>
+      <div class="entry-meta">
+        <span>Earned Jul 8, 2026</span>
+        <span>Credential ID <span class="id-val">F94573709DAC78CB</span></span>
+      </div>
+    </div>
+    <div class="entry-side">
+      <span class="tier-tag">Applied Skills</span>
+      <a class="verify-link" href="https://learn.microsoft.com/api/credentials/share/en-in/AshwikBire-4551/F94573709DAC78CB?sharingId=2D373B70DEB3172D" target="_blank" rel="noopener">
+        View credential
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 4: Fabric Analytics Engineer Associate -->
+  <div class="entry">
+    <svg class="badge" viewBox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M22 1 L42 8 V24 C42 37 34 46 22 51 C10 46 2 37 2 24 V8 Z" fill="#1E1408" stroke="#7A5A26" stroke-width="1.5"/>
+      <path d="M22 13 L26 21 H18 Z" fill="#E7A33E"/>
+      <path d="M15 26 L19 34 H11 Z" fill="#E7A33E"/>
+      <path d="M29 26 L33 34 H25 Z" fill="#E7A33E"/>
+    </svg>
+    <div class="entry-main">
+      <h2>Microsoft Certified: Fabric Analytics Engineer Associate</h2>
+      <div class="entry-meta">
+        <span>Earned Jul 16, 2026 · Expires Jul 17, 2027</span>
+        <span>Credential ID <span class="id-val">1E87AA6F5851BCA8</span></span>
+      </div>
+    </div>
+    <div class="entry-side">
+      <span class="tier-tag">Associate</span>
+      <a class="verify-link" href="https://learn.microsoft.com/api/credentials/share/en-in/AshwikBire-4950/1E87AA6F5851BCA8?sharingId=4C363AB1FFC3A56C" target="_blank" rel="noopener">
+        View credential
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 5: SQL AI Developer Associate DP-800 -->
+  <div class="entry">
+    <svg class="badge" viewBox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M22 1 L42 8 V24 C42 37 34 46 22 51 C10 46 2 37 2 24 V8 Z" fill="#1E1408" stroke="#7A5A26" stroke-width="1.5"/>
+      <path d="M22 13 L26 21 H18 Z" fill="#E7A33E"/>
+      <path d="M15 26 L19 34 H11 Z" fill="#E7A33E"/>
+      <path d="M29 26 L33 34 H25 Z" fill="#E7A33E"/>
+    </svg>
+    <div class="entry-main">
+      <h2>Microsoft Certified: SQL AI Developer Associate <span class="code">DP-800</span></h2>
+      <div class="entry-meta">
+        <span>Earned Jul 18, 2026 · Expires Jul 19, 2027</span>
+        <span>Credential ID <span class="id-val">203D7C821F73E7FD</span></span>
+      </div>
+    </div>
+    <div class="entry-side">
+      <span class="tier-tag">Associate</span>
+      <a class="verify-link" href="https://learn.microsoft.com/api/credentials/share/en-in/AshwikBire-4551/203D7C821F73E7FD?sharingId=2D373B70DEB3172D" target="_blank" rel="noopener">
+        View credential
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 6: Fabric Data Engineer Associate DP-700 -->
+  <div class="entry">
+    <svg class="badge" viewBox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M22 1 L42 8 V24 C42 37 34 46 22 51 C10 46 2 37 2 24 V8 Z" fill="#1E1408" stroke="#7A5A26" stroke-width="1.5"/>
+      <path d="M22 13 L26 21 H18 Z" fill="#E7A33E"/>
+      <path d="M15 26 L19 34 H11 Z" fill="#E7A33E"/>
+      <path d="M29 26 L33 34 H25 Z" fill="#E7A33E"/>
+    </svg>
+    <div class="entry-main">
+      <h2>Microsoft Certified: Fabric Data Engineer Associate <span class="code">DP-700</span></h2>
+      <div class="entry-meta">
+        <span>Earned Aug 11, 2026 · Expires Aug 12, 2027</span>
+        <span>Credential ID <span class="id-val">F1A5E104890BBD25</span></span>
+      </div>
+    </div>
+    <div class="entry-side">
+      <span class="tier-tag">Associate</span>
+      <a class="verify-link" href="https://learn.microsoft.com/api/credentials/share/en-us/AshwikBire-7358/F1A5E104890BBD25?sharingId=CA4A91A725386160" target="_blank" rel="noopener">
+        View credential
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>All credentials online-verifiable via Microsoft Learn.</span>
+    <a href="https://www.linkedin.com/in/ashwik-bire" target="_blank" rel="noopener">LinkedIn profile →</a>
+  </footer>
+
+</div>
+</body>
+</html>
